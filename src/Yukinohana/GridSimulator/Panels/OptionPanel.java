@@ -1,11 +1,11 @@
-package Me.GridSimulator.Panels;
+package Yukinohana.GridSimulator.Panels;
 
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import Me.GridSimulator.Options.BeltDirection;
-import Me.GridSimulator.Options.Brush;
-import Me.GridSimulator.Options.Portal;
+import Yukinohana.GridSimulator.Options.BeltDirection;
+import Yukinohana.GridSimulator.Options.Brush;
+import Yukinohana.GridSimulator.Options.Portal;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

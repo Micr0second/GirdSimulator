@@ -1,6 +1,6 @@
-package Me.GridSimulator;
+package Yukinohana.GridSimulator;
 
-import Me.GridSimulator.windows.StartWindow;
+import Yukinohana.GridSimulator.windows.StartWindow;
 
 public class GridSimulator 
 {

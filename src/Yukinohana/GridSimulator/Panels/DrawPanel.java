@@ -1,5 +1,7 @@
-package Me.GridSimulator.Panels;
+package Yukinohana.GridSimulator.Panels;
 
+import Yukinohana.GridSimulator.Grid;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,11 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.util.LinkedList;
-import java.awt.BasicStroke;
-
 import javax.swing.JPanel;
-
-import Me.GridSimulator.Grid;
 
 public class DrawPanel extends JPanel
 {

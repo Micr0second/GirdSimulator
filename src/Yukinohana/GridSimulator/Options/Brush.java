@@ -1,4 +1,4 @@
-package Me.GridSimulator.Options;
+package Yukinohana.GridSimulator.Options;
 
 import javax.swing.JButton;
 

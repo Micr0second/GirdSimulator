@@ -1,4 +1,4 @@
-package Me.GridSimulator;
+package Yukinohana.GridSimulator;
 
 import java.util.LinkedList;
 

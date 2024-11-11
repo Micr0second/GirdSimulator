@@ -1,4 +1,4 @@
-package Me.GridSimulator.windows;
+package Yukinohana.GridSimulator.windows;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import java.awt.*;
@@ -7,9 +7,9 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-import Me.GridSimulator.Grid;
-import Me.GridSimulator.Panels.DrawPanel;
-import Me.GridSimulator.Panels.OptionPanel;
+import Yukinohana.GridSimulator.Grid;
+import Yukinohana.GridSimulator.Panels.DrawPanel;
+import Yukinohana.GridSimulator.Panels.OptionPanel;
 
 public class GridWindow
 {

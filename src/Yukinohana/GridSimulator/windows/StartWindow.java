@@ -1,4 +1,4 @@
-package Me.GridSimulator.windows;
+package Yukinohana.GridSimulator.windows;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import java.awt.event.*;
