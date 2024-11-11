@@ -239,7 +239,7 @@ public class Grid
             {
                 get(r, c).setStep(-1);
             }
-            System.out.println();
         }
+        testGrid();
     }
 }

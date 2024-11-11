@@ -236,14 +236,18 @@ public class DrawPanel extends JPanel
 
     public void start()
     {
-        resetPath();
-        grid.pathFind(dep[0], dep[1], des[0], des[1]);  //test Line
-        grid.setPath(des[0], des[1]);
-        pathTest();
+        if(dep != null && des != null)
+        {
+            resetPath();
+            grid.pathFind(dep[0], dep[1], des[0], des[1]);  //test Line
+            grid.setPath(des[0], des[1]);
+            pathTest();
+        }
     }
 
     private void resetPath()
     {
+        grid.resetCompo();
         if(grid.getPath() != null)
         {
             LinkedList<int[]> temp = new LinkedList<>(grid.getPath());
