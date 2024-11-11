@@ -23,7 +23,7 @@ public class DrawPanel extends JPanel
     private int beltDir;
     private int portalType;
 
-    private final Grid GRID;
+    private Grid grid;
 
     private boolean setP;
     private double[] pStart, pEnd = null;
@@ -34,7 +34,7 @@ public class DrawPanel extends JPanel
     {
         setBackground(Color.LIGHT_GRAY);
         //setOpaque(true);
-        this.GRID = grid;
+        this.grid = grid;
         cellHeight = (int) getHeight() / grid.getHEIGHT();
         cellWidth = (int) getWidth() / grid.getWIDTH();
         addMouseMotionListener(new MouseAdapter() {
@@ -128,11 +128,11 @@ public class DrawPanel extends JPanel
     @Override
     public void paint(Graphics g)
     {
-        for(int r = 0; r < GRID.getHEIGHT(); r++)
+        for(int r = 0; r < grid.getHEIGHT(); r++)
         {
-            for(int c = 0; c<GRID.getWIDTH(); c++) 
+            for(int c = 0; c<grid.getWIDTH(); c++) 
             {
-                GRID.get(r,c).draw(g, cellWidth, cellHeight);
+                grid.get(r,c).draw(g, cellWidth, cellHeight);
             }
         }
         Graphics2D newG = (Graphics2D) g;
@@ -166,20 +166,30 @@ public class DrawPanel extends JPanel
 
     public boolean isValidNum(int height, int width)
     {
-        return height < GRID.getHEIGHT() && width < GRID.getWIDTH() && height > -1 && width > -1;
+        return height < grid.getHEIGHT() && width < grid.getWIDTH() && height > -1 && width > -1;
     }
 
     public void setPortals()
     {
         setP = !setP;
         //System.out.println(setP);
-        GRID.highlightP(setP);
+        grid.highlightP(setP);
         repaint();
     }
 
     public Grid getGRID()
     {
-        return GRID;
+        return grid;
+    }
+
+    public void resetGrid()
+    {
+        this.grid = new Grid(grid.getWIDTH(), grid.getHEIGHT());
+        this.des = null;
+        this.dep = null;
+        this.pEnd = null;
+        this.pStart = null;
+        repaint();
     }
 
     public void setBurshType(int type)
@@ -227,21 +237,21 @@ public class DrawPanel extends JPanel
     public void start()
     {
         resetPath();
-        GRID.pathFind(dep[0], dep[1], des[0], des[1]);  //test Line
-        GRID.setPath(des[0], des[1]);
+        grid.pathFind(dep[0], dep[1], des[0], des[1]);  //test Line
+        grid.setPath(des[0], des[1]);
         pathTest();
     }
 
     private void resetPath()
     {
-        if(GRID.getPath() != null)
+        if(grid.getPath() != null)
         {
-            LinkedList<int[]> temp = new LinkedList<>(GRID.getPath());
+            LinkedList<int[]> temp = new LinkedList<>(grid.getPath());
             while(!temp.isEmpty())
             {
                 int[] cPos = temp.removeFirst();
                 //System.out.println(cPos[0] + ", " + cPos[1]);
-                GRID.get(cPos[0], cPos[1]).makeBrighter();
+                grid.get(cPos[0], cPos[1]).makeBrighter();
             }
             repaint();
         }
@@ -249,13 +259,13 @@ public class DrawPanel extends JPanel
 
     private void pathTest()
     {
-        LinkedList<int[]> temp = new LinkedList<>(GRID.getPath());
+        LinkedList<int[]> temp = new LinkedList<>(grid.getPath());
         //System.out.println(temp.size());
         while(!temp.isEmpty())
         {
             int[] cPos = temp.removeFirst();
             //System.out.println(cPos[0] + ", " + cPos[1]);
-            GRID.get(cPos[0], cPos[1]).makeDarker();
+            grid.get(cPos[0], cPos[1]).makeDarker();
         }
         repaint();
     }

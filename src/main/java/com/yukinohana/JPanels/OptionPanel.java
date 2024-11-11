@@ -190,6 +190,7 @@ public final class OptionPanel extends JPanel implements ActionListener
         }
         if(e.getActionCommand().equals("reset"))
         {
+            drawPanel.resetGrid();
         }
     }
 
